@@ -25,7 +25,14 @@ class ConfigHandler {
                         "harvestcraft:pamblueberrycrop",
                         "harvestcraft:pamcandleberrycrop",
                         "harvestcraft:pamraspberrycrop",
-                        "harvestcraft:pamstrawberrycrop"
+                        "harvestcraft:pamstrawberrycrop",
+                        "harvestcraft:pamcactusfruitcrop",
+                        "harvestcraft:pamasparaguscrop",
+                        "harvestcraft:pambarleycrop",
+                        "harvestcraft:pamoatscrop",
+                        "harvestcraft:pamryecrop",
+                        "harvestcraft:pamcorncrop",
+                        "harvestcraft:pambambooshootcrop"
                 },
                 "A list of crops that should die out in the winter"
         );

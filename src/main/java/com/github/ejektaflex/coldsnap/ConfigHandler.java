@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.github.ejektaflex.coldsnap;
 
 import net.minecraftforge.common.config.Configuration;
 

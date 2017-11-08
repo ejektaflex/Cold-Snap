@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "coldsnap",
+  "name": "Cold Snap",
+  "description": "This mod allows some crops to die out in the winter when Tough As Nails is installed.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Ejektaflex"],
+  "credits": "The Forge and FML guys, for making modding a thing. Also, all of the developers for Tough As Nails for making their mod and making this possible.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

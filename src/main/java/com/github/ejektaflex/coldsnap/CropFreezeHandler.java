@@ -1,8 +1,6 @@
-package com.example.examplemod;
+package com.github.ejektaflex.coldsnap;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCrops;
-import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
@@ -19,7 +17,7 @@ import java.util.Random;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static com.example.examplemod.ExampleMod.config;
+import static com.github.ejektaflex.coldsnap.ColdSnap.config;
 
 public class CropFreezeHandler
 {

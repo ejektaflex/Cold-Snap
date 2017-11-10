@@ -1,24 +1,25 @@
 package com.github.ejektaflex.coldsnap.Helpers
 
-import net.minecraftforge.common.config.Configuration
-import java.io.File
+import com.github.ejektaflex.coldsnap.ModInfo
+import net.minecraftforge.common.config.Config
+import net.minecraftforge.common.config.ConfigManager
+import net.minecraftforge.fml.client.event.ConfigChangedEvent
+import net.minecraftforge.fml.common.Mod
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 
 
-open class KConfig(private var configName: String) {
 
-    lateinit var config: Configuration
 
-    fun inPath(configDir: String): KConfig {
-        config = Configuration(File(configDir, configName))
-        return this
-    }
+open class KConfig {
 
-    fun load() {
-        this.config.load()
-    }
-
-    fun save() {
-        this.config.save()
+    @Mod.EventBusSubscriber(modid = ModInfo.MODID)
+    private class EventHandler {
+        @SubscribeEvent
+        fun onConfigChanged(event: ConfigChangedEvent.OnConfigChangedEvent) {
+            if (event.modID == ModInfo.MODID) {
+                ConfigManager.sync(ModInfo.MODID, Config.Type.INSTANCE)
+            }
+        }
     }
 
 }

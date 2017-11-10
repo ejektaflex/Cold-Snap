@@ -1,3 +1,4 @@
+import com.github.ejektaflex.coldsnap.Config
 import net.minecraftforge.event.world.BlockEvent
 import net.minecraftforge.fml.common.eventhandler.EventPriority
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
@@ -11,7 +12,7 @@ import java.util.Random
 object CropFreezeHandler {
     // Random chance gen
     private val random = Random()
-    private val config = ColdSnap.config
+    private val config = Config
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     fun onCropGrowPre(event: BlockEvent.CropGrowEvent.Pre) {

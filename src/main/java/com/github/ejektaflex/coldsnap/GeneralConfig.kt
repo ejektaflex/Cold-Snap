@@ -1,4 +1,4 @@
-import com.github.ejektaflex.coldsnap.Helpers.KConfig
+import com.github.ejektaflex.coldsnap.Helpers.*
 
 object GeneralConfig : KConfig("coldsnap.cfg") {
     // All crops that should die in the winter
@@ -14,6 +14,15 @@ object GeneralConfig : KConfig("coldsnap.cfg") {
 
     init {
         initCropSettings()
+
+        configFile(this.config) {
+            category("basics") {
+                this["doesGrow"] = false
+                this["baseGrowthChance"] = 1.0
+                //configBool("doesGrow", false)
+            }
+        }
+
     }
 
     private fun initCropSettings() {
@@ -44,6 +53,10 @@ object GeneralConfig : KConfig("coldsnap.cfg") {
                 1.0,
                 "Random base chance [0-1] of a crop growing. E.g. 0.5 would make crops grow half as fast, on average."
         ).double
+
+
+
+
     }
 
 }

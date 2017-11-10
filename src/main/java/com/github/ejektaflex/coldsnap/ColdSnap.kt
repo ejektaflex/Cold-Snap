@@ -22,7 +22,6 @@ object ColdSnap {
     fun preInit(event: FMLPreInitializationEvent) {
         val directory = event.modConfigurationDirectory
         config = GeneralConfig.inPath(directory.path) as GeneralConfig
-
         MinecraftForge.EVENT_BUS.register(CropFreezeHandler)
     }
 

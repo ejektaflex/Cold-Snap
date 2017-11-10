@@ -25,7 +25,6 @@ object CropFreezeHandler {
             event.deny()
 
             if (cropName in config.fragileCrops) {
-                // Change crop to dead crop
                 event.world.setBlockState(event.pos, TANBlocks.dead_crops.defaultState)
             } else if (cropName in config.partialCrops) {
                 event.world.setBlockState(event.pos, block.defaultState, 3)

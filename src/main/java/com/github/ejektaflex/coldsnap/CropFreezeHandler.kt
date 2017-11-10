@@ -8,7 +8,7 @@ import toughasnails.api.season.SeasonHelper
 import toughasnails.api.config.SeasonsOption
 import java.util.Random
 
-class CropFreezeHandler {
+object CropFreezeHandler {
     // Random chance gen
     private val random = Random()
     private val config = ColdSnap.config

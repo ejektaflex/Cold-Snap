@@ -1,19 +1,21 @@
 import com.github.ejektaflex.coldsnap.KConfig
 
-object ConfigHandler : KConfig("coldsnap.cfg") {
-    // All crops that should die in the winter
-    lateinit var fragileCrops: Array<String>
-    // All crops that have their growth reset in the winter
-    lateinit var partialCrops: Array<String>
-    // Chance for a crop to stall growth in late fall
-    var fallFrostChance: Double = 0.toDouble()
-    // Chance for a crop to grow in general
-    var baseGrowthChance: Double = 0.toDouble()
-
-    private val CATEGORY_GENERAL = "general"
-
+open class ConfigHandler(folder: String) : KConfig(folder, "coldsnap.cfg") {
     init {
         initCropSettings()
+    }
+
+    // All crops that should die in the winter
+    open lateinit var fragileCrops: Array<String>
+    // All crops that have their growth reset in the winter
+    open lateinit var partialCrops: Array<String>
+    // Chance for a crop to stall growth in late fall
+    open var fallFrostChance: Double = 0.0
+    // Chance for a crop to grow in general
+    open var baseGrowthChance: Double = 0.0
+
+    companion object {
+        private val CATEGORY_GENERAL = "general"
     }
 
     private fun initCropSettings() {
@@ -46,6 +48,8 @@ object ConfigHandler : KConfig("coldsnap.cfg") {
         ).double
 
     }
+
+
 
 
 }

@@ -12,7 +12,7 @@ import java.util.Random
 object CropFreezeHandler {
     // Random chance gen
     private val random = Random()
-    private val config = ConfigHandler
+    private val config = ColdSnap.config
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     fun onCropGrowPre(event: BlockEvent.CropGrowEvent.Pre) {

@@ -16,7 +16,7 @@ object ColdSnap {
     @EventHandler
     fun preInit(event: FMLPreInitializationEvent) {
         val directory = event.modConfigurationDirectory
-        config = ConfigHandler.atFolder(directory.path) as ConfigHandler
+        config = ConfigHandler(directory.path)
 
         MinecraftForge.EVENT_BUS.register(CropFreezeHandler)
     }

@@ -17,8 +17,8 @@ object CropFreezeHandler {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     fun onCropGrowPre(event: BlockEvent.CropGrowEvent.Pre) {
 
-        val sub_season = SeasonHelper.getSeasonData(event.world).subSeason
-        val season = sub_season.season
+        val subSeason = SeasonHelper.getSeasonData(event.world).subSeason
+        val season = subSeason.season
 
         fun killCrop(event: BlockEvent.CropGrowEvent.Pre) {
             val block = event.state.block
@@ -36,7 +36,7 @@ object CropFreezeHandler {
         if (random.nextDouble() <= config.baseGrowthChance) {
             if (season == Season.WINTER && SyncedConfig.getBooleanValue(SeasonsOption.ENABLE_SEASONS)) {
                 killCrop(event)
-            } else if (sub_season == Season.SubSeason.LATE_AUTUMN) {
+            } else if (subSeason == Season.SubSeason.LATE_AUTUMN) {
                 if (random.nextDouble() > config.fallFrostChance) {
                     killCrop(event)
                 }

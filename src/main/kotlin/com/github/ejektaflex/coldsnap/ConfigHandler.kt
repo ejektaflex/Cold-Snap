@@ -1,10 +1,6 @@
 import com.github.ejektaflex.coldsnap.KConfig
 
 open class ConfigHandler(folder: String) : KConfig(folder, "coldsnap.cfg") {
-    init {
-        initCropSettings()
-    }
-
     // All crops that should die in the winter
     open lateinit var fragileCrops: Array<String>
     // All crops that have their growth reset in the winter
@@ -14,6 +10,76 @@ open class ConfigHandler(folder: String) : KConfig(folder, "coldsnap.cfg") {
     // Chance for a crop to grow in general
     open var baseGrowthChance: Double = 0.0
 
+    // Crops for Pam's Harvestcraft compat
+    private var pamCrops = arrayOf(
+            "blackberry",
+            "blueberry",
+            "candleberry",
+            "raspberry",
+            "strawberry",
+            "cactusfruit",
+            "asparagus",
+            "barley",
+            "oats",
+            "rye",
+            "corn",
+            "bambooshoot",
+            "cantaloupe",
+            "cucumber",
+            "wintersquash",
+            "zucchini",
+            "beet",
+            "onion",
+            "parsnip",
+            "peanut",
+            "radish",
+            "rutabega",
+            "sweetpotato",
+            "turnip",
+            "rhubarb",
+            "celery",
+            "garlic",
+            "ginger",
+            "spiceleaf",
+            "tealeaf",
+            "coffeebean",
+            "mustardseeds",
+            "broccoli",
+            "cauliflower",
+            "leek",
+            "lettuce",
+            "scallion",
+            "artichoke",
+            "brusselsprout",
+            "cabbage",
+            "spinach",
+            "whitemushroom",
+            "bean",
+            "soybean",
+            "bellpepper",
+            "chilipepper",
+            "eggplant",
+            "okra",
+            "peas",
+            "tomato",
+            "cotton",
+            "pineapple",
+            "grape",
+            "kiwi",
+            "cranberry",
+            "rice",
+            "seaweed",
+            "curryleaf",
+            "sesameseeds",
+            "waterchestnut"
+    )
+
+    private val defaultCrops = pamCrops.map { "harvestcraft:pam${it}crop" }
+
+    init {
+        initCropSettings()
+    }
+
     companion object {
         private val CATEGORY_GENERAL = "general"
     }
@@ -22,14 +88,17 @@ open class ConfigHandler(folder: String) : KConfig(folder, "coldsnap.cfg") {
         fragileCrops = this.config.getStringList(
                 "fragileCrops", CATEGORY_GENERAL,
                 // Default crops that should die in the winter
-                arrayOf("harvestcraft:pamblackberrycrop", "harvestcraft:pamblueberrycrop", "harvestcraft:pamcandleberrycrop", "harvestcraft:pamraspberrycrop", "harvestcraft:pamstrawberrycrop", "harvestcraft:pamcactusfruitcrop", "harvestcraft:pamasparaguscrop", "harvestcraft:pambarleycrop", "harvestcraft:pamoatscrop", "harvestcraft:pamryecrop", "harvestcraft:pamcorncrop", "harvestcraft:pambambooshootcrop"),
+                defaultCrops.toTypedArray(),
                 "A list of crops that should die out in the winter"
         )
 
         partialCrops = this.config.getStringList(
                 "partialCrops", CATEGORY_GENERAL,
-                // Default crops that should die in the winter
-                arrayOf("rustic:chili_crop", "rustic:wildberry_bush"),
+                // Default crops that be reset in the winter
+                arrayOf(
+                        "rustic:chili_crop",
+                        "rustic:wildberry_bush"
+                ),
                 "A list of crops that should not grow in winter, but not die"
         )
 
